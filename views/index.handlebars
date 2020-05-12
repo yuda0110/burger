@@ -4,14 +4,19 @@
     <section>
         <ul>
             {{#each burgers}}
-
+                {{#unless devoured}}
+                    <li>{{id}}. {{burger_name}}</li>
+                    <button id="{{id}}">Devour it!</button>
+                {{/unless}}
             {{/each}}
         </ul>
 
     </section>
         <ul>
             {{#each burgers}}
-
+                {{#if devoured}}
+                    <li>{{id}}. {{burger_name}}</li>
+                {{/if}}
             {{/each}}
         </ul>
     <section>

@@ -1,8 +1,8 @@
 const connection = require('./connection.js');
 
 const orm = {
-  selectAll: (table, where, cb) => {
-    connection.query('SELECT * FROM ?? WHERE ?', [table, where], (err, res) => {
+  selectAll: (table, cb) => {
+    connection.query('SELECT * FROM ??', [table], (err, res) => {
       if (err) {
         return res.status(500).end();
       }
