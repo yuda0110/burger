@@ -10,8 +10,8 @@ const orm = {
     })
   },
 
-  insertOne: (table, cols, val, cb) => {
-    connection.query('INSERT INTO ?? (??) VALUES ?', [table, cols, val], (err, res) => {
+  insertOne: (table, col, val, cb) => {
+    connection.query('INSERT INTO ?? (??) VALUES (?)', [table, col, val], (err, res) => {
       if (err) {
         return res.status(500).end();
       }
