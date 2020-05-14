@@ -19,4 +19,22 @@ router.post('/', (req, res) => {
   });
 });
 
+router.put("/", (req, res) => {
+  burger.update(
+    {
+      devoured: 1
+    },
+    {
+      id: req.body.id
+    },
+    (result) => {
+      if (result.changedRows === 0) {
+        // If no rows were changed, then the ID must not exist, so 404
+        return res.status(404).end();
+      }
+      res.status(200).end();
+    }
+  );
+});
+
 module.exports = router;

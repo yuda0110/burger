@@ -14,7 +14,7 @@ const burger = {
   },
 
   update: (set, where, cb) => {
-    orm.updateOne('burgers', set, where, cb, (res) => {
+    orm.updateOne('burgers', set, where, (res) => {
       cb(res);
     })
   }
