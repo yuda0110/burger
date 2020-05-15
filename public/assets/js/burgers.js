@@ -26,15 +26,19 @@ $(function() {
       name: $("#burger-name").val().trim()
     };
 
-    // Send the POST request.
-    $.ajax("/", {
-      type: "POST",
-      data: newBurger
-    }).then(() => {
-        console.log("Created new burger");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
+    if (newBurger.name.length > 0) {
+      // Send the POST request.
+      $.ajax("/", {
+        type: "POST",
+        data: newBurger
+      }).then(() => {
+          console.log("Created new burger");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    } else {
+      alert("Please type in a burger name before submitting!");
+    }
   });
 });
